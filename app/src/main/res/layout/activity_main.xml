@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Find Restaurants"
-        android:id="@+id/button"
+        android:id="@+id/findRestaurantsButton"
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
         android:layout_alignParentBottom="true"
