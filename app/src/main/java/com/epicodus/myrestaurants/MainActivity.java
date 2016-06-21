@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mLocationEditText = (EditText) findViewById(R.id.locationEditText);
         mFindRestaurantsButton = (Button) findViewById(R.id.findRestaurantsButton);
+
         mFindRestaurantsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
