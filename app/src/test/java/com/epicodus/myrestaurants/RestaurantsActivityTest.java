@@ -29,7 +29,7 @@ public class RestaurantsActivityTest {
     @Test
     public void restaurantListViewPopulates() {
         assertNotNull(mRestaurantListView.getAdapter());
-        assertEquals(mRestaurantListView.getAdapter().getCount(), 15);
+        assertEquals(mRestaurantListView.getAdapter().getCount(), 16);
     }
 
 }
