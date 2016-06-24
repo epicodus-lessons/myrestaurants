@@ -59,6 +59,7 @@ public class RestaurantsActivity extends AppCompatActivity {
 
     private void getRestaurants(String location) {
         final YelpService yelpService = new YelpService();
+
         yelpService.findRestaurants(location, new Callback() {
 
             @Override
@@ -67,14 +68,16 @@ public class RestaurantsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
-                    mRestaurants = yelpService.processResults(response);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            public void onResponse(Call call, Response response) {
+                mRestaurants = yelpService.processResults(response);
+
+                RestaurantsActivity.this.runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                    }
+                });
             }
         });
     }
