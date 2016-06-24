@@ -1,5 +1,7 @@
 package com.epicodus.myrestaurants;
 
+import com.epicodus.myrestaurants.models.Restaurant;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
