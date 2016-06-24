@@ -50,6 +50,8 @@ public class RestaurantsActivity extends AppCompatActivity {
         String location = intent.getStringExtra("location");
 
         mLocationTextView.setText("Here are all the restaurants near: " + location);
+
+        getRestaurants(location);
     }
 
     private void getRestaurants(String location) {
