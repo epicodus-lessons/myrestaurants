@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v == mFindRestaurantsButton) {
             String location = mLocationEditText.getText().toString();
-            addToSharedPreferences(location);
+            if(!(location).equals("")) {
+                addToSharedPreferences(location);
+            }
             Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
             startActivity(intent);
         }
