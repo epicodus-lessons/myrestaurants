@@ -1,6 +1,7 @@
 package com.epicodus.myrestaurants.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+
     @Bind(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
