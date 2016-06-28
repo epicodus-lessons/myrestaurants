@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
     tools:context=".ui.RestaurantsActivity">
 
     <TextView
@@ -19,5 +23,10 @@
         android:layout_below="@+id/locationTextView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView"/>
 
 </RelativeLayout>
