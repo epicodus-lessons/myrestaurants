@@ -7,7 +7,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".ui.RestaurantsActivity">
+    tools:context=".ui.RestaurantListActivity">
 
     <TextView
         android:layout_width="wrap_content"
