@@ -46,6 +46,7 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'se.akerfeldt:okhttp-signpost:1.1.0'
     compile 'com.android.support:recyclerview-v7:+'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2') {
         exclude group: 'com.android.support', module: 'support-annotations'
