@@ -23,6 +23,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAdapter.RestaurantViewHolder> {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+
     private ArrayList<Restaurant> mRestaurants = new ArrayList<>();
     private Context mContext;
 
