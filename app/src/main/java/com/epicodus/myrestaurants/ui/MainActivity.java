@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addToSharedPreferences(location);
             }
             Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
+            intent.putExtra("location", location);
             startActivity(intent);
         }
     }
