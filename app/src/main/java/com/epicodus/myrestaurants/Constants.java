@@ -8,4 +8,5 @@ public class Constants {
     public static final String YELP_BASE_URL = "https://api.yelp.com/v2/search?term=food";
     public static final String YELP_LOCATION_QUERY_PARAMETER = "location";
     public static final String PREFERENCES_LOCATION_KEY = "location";
+    public static final String FIREBASE_CHILD_SEARCHED_LOCATION = "searchedLocation";
 }
