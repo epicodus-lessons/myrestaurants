@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private DatabaseReference mSearchedLocationReference;
 
+    private ValueEventListener mSearchedLocationReferenceListener;
+
     @Bind(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_SEARCHED_LOCATION);
 
-        mSearchedLocationReference.addValueEventListener(new ValueEventListener() {
+        mSearchedLocationReferenceListener = mSearchedLocationReference.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        mEditor = mSharedPreferences.edit();
 
         mFindRestaurantsButton.setOnClickListener(this);
+
     }
 
     @Override
@@ -89,6 +92,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void saveLocationToFirebase(String location) {
         mSearchedLocationReference.push().setValue(location);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mSearchedLocationReference.removeEventListener(mSearchedLocationReferenceListener);
     }
 
 //    private void addToSharedPreferences(String location) {
