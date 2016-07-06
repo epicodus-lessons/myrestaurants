@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onCancelled(DatabaseError databaseError) {
 
             }
+
         });
 
         super.onCreate(savedInstanceState);
@@ -70,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        mEditor = mSharedPreferences.edit();
 
         mFindRestaurantsButton.setOnClickListener(this);
-
     }
 
     @Override
