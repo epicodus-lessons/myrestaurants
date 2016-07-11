@@ -11,8 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.MainActivity"
-            android:theme="@style/NoActionBarTheme">
+            android:name=".ui.MainActivity">
         </activity>
         <activity android:name=".ui.RestaurantListActivity">
             <meta-data
