@@ -37,6 +37,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mAuth = FirebaseAuth.getInstance();
     }
 
+    private void loginWithPassword() {
+        String email = mEmailEditText.getText().toString().trim();
+        String password = mPasswordEditText.getText().toString().trim();
+
+        if (email.equals("")) {
+            mEmailEditText.setError("Please enter your email");
+            return;
+        }
+
+        if (password.equals("")) {
+            mPasswordEditText.setError("Password cannot be blank");
+            return;
+        }
+
+    }
+
     @Override
     public void onClick(View view) {
 
