@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.epicodus.myrestaurants.Constants;
 import com.epicodus.myrestaurants.R;
 import com.epicodus.myrestaurants.models.Restaurant;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -81,16 +83,19 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+
         if (v == mWebsiteLabel) {
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse(mRestaurant.getWebsite()));
             startActivity(webIntent);
         }
+
         if (v == mPhoneLabel) {
             Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
                     Uri.parse("tel:" + mRestaurant.getPhone()));
             startActivity(phoneIntent);
         }
+
         if (v == mAddressLabel) {
             Intent mapIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse("geo:" + mRestaurant.getLatitude()
@@ -98,13 +103,17 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
                             + "?q=(" + mRestaurant.getName() + ")"));
             startActivity(mapIntent);
         }
+
         if (v == mSaveRestaurantButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_RESTAURANTS);
             restaurantRef.push().setValue(mRestaurant);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
+
     }
 
 }
