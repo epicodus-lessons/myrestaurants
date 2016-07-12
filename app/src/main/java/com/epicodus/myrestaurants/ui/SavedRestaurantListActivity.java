@@ -34,7 +34,11 @@ public class SavedRestaurantListActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
-        mRestaurantReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RESTAURANTS);
+        mRestaurantReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_RESTAURANTS)
+                .child(uid);
+
         setUpFirebaseAdapter();
     }
 
