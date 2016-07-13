@@ -22,7 +22,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder implements {
+public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
 
