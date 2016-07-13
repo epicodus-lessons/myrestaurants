@@ -100,4 +100,12 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
             ref.setValue(restaurant);
         }
     }
+
+    @Override
+    public void cleanup() {
+        super.cleanup();
+        setIndexInFirebase();
+        mRestaurants.clear();
+        mRef.removeEventListener(mChildEventListener);
+    }
 }
