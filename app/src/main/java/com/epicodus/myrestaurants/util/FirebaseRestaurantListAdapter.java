@@ -87,7 +87,7 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
-                intent.putExtra("position", viewHolder.getAdapterPosition() + "");
+                intent.putExtra("position", viewHolder.getAdapterPosition());
                 intent.putExtra("restaurants", Parcels.wrap(mRestaurants));
                 mContext.startActivity(intent);
             }
