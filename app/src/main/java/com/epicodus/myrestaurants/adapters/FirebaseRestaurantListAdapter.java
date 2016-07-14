@@ -1,4 +1,4 @@
-package com.epicodus.myrestaurants.util;
+package com.epicodus.myrestaurants.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.view.View;
 import com.epicodus.myrestaurants.adapters.FirebaseRestaurantViewHolder;
 import com.epicodus.myrestaurants.models.Restaurant;
 import com.epicodus.myrestaurants.ui.RestaurantDetailActivity;
+import com.epicodus.myrestaurants.util.ItemTouchHelperAdapter;
+import com.epicodus.myrestaurants.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
