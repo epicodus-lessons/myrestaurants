@@ -68,5 +68,17 @@ public class SavedRestaurantListFragment extends Fragment implements OnStartDrag
         mItemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
 
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
+    }
+
+    @Override
+    //method is now public
+    public void onDestroy() {
+        super.onDestroy();
+        mFirebaseAdapter.cleanup();
+    }
+
 
 }

@@ -59,14 +59,14 @@ public class SavedRestaurantListActivity extends AppCompatActivity implements On
 //        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
 //    }
 
-    @Override
-    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
-        mItemTouchHelper.startDrag(viewHolder);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mFirebaseAdapter.cleanup();
-    }
+//    @Override
+//    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+//        mItemTouchHelper.startDrag(viewHolder);
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        mFirebaseAdapter.cleanup();
+//    }
 }
