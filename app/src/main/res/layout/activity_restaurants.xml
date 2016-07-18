@@ -3,30 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
     tools:context=".ui.RestaurantListActivity">
 
-    <TextView
+    <fragment
+        android:id="@+id/fragmentRestaurantList"
+        android:name="com.epicodus.myrestaurants.ui.RestaurantListFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Restaurants near"
-        android:id="@+id/locationTextView"
-        android:layout_centerHorizontal="true" />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listView"
-        android:layout_below="@+id/locationTextView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerView"/>
+        tools:layout="@layout/fragment_restaurant_list" />
 
 </RelativeLayout>
