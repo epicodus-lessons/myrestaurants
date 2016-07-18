@@ -26,14 +26,13 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class SavedRestaurantListFragment extends Fragment implements OnStartDragListener {
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+
     private FirebaseRestaurantListAdapter mFirebaseAdapter;
     private ItemTouchHelper mItemTouchHelper;
 
-    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
-
     public SavedRestaurantListFragment() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -76,6 +75,5 @@ public class SavedRestaurantListFragment extends Fragment implements OnStartDrag
         super.onDestroy();
         mFirebaseAdapter.cleanup();
     }
-
 
 }

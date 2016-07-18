@@ -32,17 +32,15 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class RestaurantListFragment extends Fragment {
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+
     private RestaurantListAdapter mAdapter;
     public ArrayList<Restaurant> mRestaurants = new ArrayList<>();
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     private String mRecentAddress;
 
-    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
-
-
     public RestaurantListFragment() {
-        // Required empty public constructor
     }
 
     @Override
