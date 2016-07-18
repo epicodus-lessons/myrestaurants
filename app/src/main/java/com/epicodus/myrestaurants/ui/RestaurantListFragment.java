@@ -140,4 +140,8 @@ public class RestaurantListFragment extends Fragment {
         });
     }
 
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+    }
+
 }
