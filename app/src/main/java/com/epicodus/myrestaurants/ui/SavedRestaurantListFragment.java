@@ -32,7 +32,6 @@ public class SavedRestaurantListFragment extends Fragment implements OnStartDrag
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
     public SavedRestaurantListFragment() {
-        // Required empty public constructor
     }
 
 
@@ -53,13 +52,12 @@ public class SavedRestaurantListFragment extends Fragment implements OnStartDrag
                 .getReference(Constants.FIREBASE_CHILD_RESTAURANTS)
                 .child(uid)
                 .orderByChild(Constants.FIREBASE_QUERY_INDEX);
-        //In line below, we change 6th parameter 'this' to 'getActivity()' because fragments do not have own context:
+
         mFirebaseAdapter = new FirebaseRestaurantListAdapter(Restaurant.class,
                 R.layout.restaurant_list_item_drag, FirebaseRestaurantViewHolder.class,
                 query, this, getActivity());
 
         mRecyclerView.setHasFixedSize(true);
-        //In line below, we change 'this' to 'getActivity()' because fragments do not have own context:
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setAdapter(mFirebaseAdapter);
 
@@ -74,7 +72,6 @@ public class SavedRestaurantListFragment extends Fragment implements OnStartDrag
     }
 
     @Override
-    //method is now public
     public void onDestroy() {
         super.onDestroy();
         mFirebaseAdapter.cleanup();
