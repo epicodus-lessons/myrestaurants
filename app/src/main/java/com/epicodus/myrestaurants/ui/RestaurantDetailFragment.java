@@ -89,7 +89,11 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
         mPhoneLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
 
-        mSaveRestaurantButton.setOnClickListener(this);
+        if (mSource.equals(Constants.SOURCE_SAVED)) {
+            mSaveRestaurantButton.setVisibility(View.GONE);
+        } else {
+            mSaveRestaurantButton.setOnClickListener(this);
+        }
 
         return view;
     }
