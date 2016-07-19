@@ -106,7 +106,8 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
         super.onCreateOptionsMenu(menu, inflater);
         if (mSource.equals(Constants.SOURCE_SAVED)) {
             inflater.inflate(R.menu.menu_photo, menu);
-        } else {
+        }
+        else {
             inflater.inflate(R.menu.menu_main, menu);
         }
     }
