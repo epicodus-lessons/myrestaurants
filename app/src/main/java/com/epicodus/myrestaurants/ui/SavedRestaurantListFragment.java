@@ -31,8 +31,7 @@ public class SavedRestaurantListFragment extends Fragment implements OnStartDrag
     private FirebaseRestaurantListAdapter mFirebaseAdapter;
     private ItemTouchHelper mItemTouchHelper;
 
-    public SavedRestaurantListFragment() {
-    }
+    public SavedRestaurantListFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

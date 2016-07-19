@@ -19,7 +19,6 @@ public class Restaurant {
     private String pushId;
     String index;
 
-    // empty constructor needed by the Parceler library:
     public Restaurant() {}
 
     public Restaurant(String name, String phone, String website,

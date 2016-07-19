@@ -40,8 +40,7 @@ public class RestaurantListFragment extends Fragment {
     private SharedPreferences.Editor mEditor;
     private String mRecentAddress;
 
-    public RestaurantListFragment() {
-    }
+    public RestaurantListFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
