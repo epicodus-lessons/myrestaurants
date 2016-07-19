@@ -48,7 +48,7 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
     public static RestaurantDetailFragment newInstance(ArrayList<Restaurant> restaurants, Integer position) {
         RestaurantDetailFragment restaurantDetailFragment = new RestaurantDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("restaurant", Parcels.wrap(restaurants));
+        args.putParcelable(Constants.EXTRA_KEY_RESTAURANTS, Parcels.wrap(restaurants));
         args.putInt(Constants.EXTRA_KEY_POSITION, position);
 
         restaurantDetailFragment.setArguments(args);
