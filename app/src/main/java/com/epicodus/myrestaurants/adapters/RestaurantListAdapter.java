@@ -111,7 +111,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
-            mRestaurantSelectedListener.onRestaurantSelected(itemPosition, mRestaurants);
+            mRestaurantSelectedListener.onRestaurantSelected(itemPosition, mRestaurants, mContext.getClass().getSimpleName());
 
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(itemPosition);
@@ -119,6 +119,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
                 Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
                 intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
                 intent.putExtra(Constants.EXTRA_KEY_RESTAURANTS, Parcels.wrap(mRestaurants));
+                intent.putExtra(Constants.KEY_SOURCE, Constants.SOURCE_FIND);
                 mContext.startActivity(intent);
             }
         }
