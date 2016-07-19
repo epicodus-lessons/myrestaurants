@@ -53,6 +53,7 @@ public class RestaurantListActivity extends AppCompatActivity implements OnResta
         if (mPosition != null && mRestaurants != null) {
             outState.putInt(Constants.EXTRA_KEY_POSITION, mPosition);
             outState.putParcelable(Constants.EXTRA_KEY_RESTAURANTS, Parcels.wrap(mRestaurants));
+            outState.putString(Constants.KEY_SOURCE, mSource);
         }
 
     }
