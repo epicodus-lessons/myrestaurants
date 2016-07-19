@@ -56,6 +56,8 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         return mRestaurants.size();
     }
 
+
+
     public class RestaurantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.restaurantImageView) ImageView mRestaurantImageView;
         @Bind(R.id.restaurantNameTextView) TextView mNameTextView;
@@ -65,18 +67,13 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         private Context mContext;
         private int mOrientation;
 
-
         public RestaurantViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
 
             mContext = itemView.getContext();
-
-            // Determines the current orientation of the device:
             mOrientation = itemView.getResources().getConfiguration().orientation;
 
-            // Checks if the recorded orientation matches Android's landscape configuration.
-            // if so, we create a new DetailFragment to display in our special landscape layout:
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(0);
             }
@@ -98,13 +95,9 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         }
 
         private void createDetailFragment(int position) {
-            // Creates new RestaurantDetailFragment with the given position:
             RestaurantDetailFragment detailFragment = RestaurantDetailFragment.newInstance(mRestaurants, position);
-            // Gathers necessary components to replace the FrameLayout in the layout with the RestaurantDetailFragment:
             FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
-            //  Replaces the FrameLayout with the RestaurantDetailFragment:
             ft.replace(R.id.restaurantDetailContainer, detailFragment);
-            // Commits these changes:
             ft.commit();
         }
 
