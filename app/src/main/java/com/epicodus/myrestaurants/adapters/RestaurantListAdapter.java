@@ -110,12 +110,14 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
-
-            Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
-            intent.putExtra("position", itemPosition);
-            intent.putExtra("restaurants", Parcels.wrap(mRestaurants));
-
-            mContext.startActivity(intent);
+            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                createDetailFragment(itemPosition);
+            } else {
+                Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
+                intent.putExtra("position", itemPosition);
+                intent.putExtra("restaurants", Parcels.wrap(mRestaurants));
+                mContext.startActivity(intent);
+            }
         }
     }
 }
