@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.epicodus.myrestaurants.Constants;
 import com.epicodus.myrestaurants.R;
 import com.epicodus.myrestaurants.models.Restaurant;
 import com.epicodus.myrestaurants.ui.RestaurantDetailActivity;
@@ -114,8 +115,8 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
                 createDetailFragment(itemPosition);
             } else {
                 Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
-                intent.putExtra("position", itemPosition);
-                intent.putExtra("restaurants", Parcels.wrap(mRestaurants));
+                intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
+                intent.putExtra(Constants.EXTRA_KEY_RESTAURANTS, Parcels.wrap(mRestaurants));
                 mContext.startActivity(intent);
             }
         }
