@@ -59,9 +59,10 @@ public class RestaurantListActivity extends AppCompatActivity implements OnResta
     }
 
     @Override
-    public void onRestaurantSelected(Integer position, ArrayList<Restaurant> restaurants) {
+    public void onRestaurantSelected(Integer position, ArrayList<Restaurant> restaurants, String source) {
         mPosition = position;
         mRestaurants = restaurants;
+        mSource = source;
     }
 }
 
