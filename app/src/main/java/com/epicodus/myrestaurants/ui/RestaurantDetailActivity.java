@@ -32,7 +32,7 @@ public class RestaurantDetailActivity extends AppCompatActivity {
         int startingPosition = getIntent().getIntExtra(Constants.EXTRA_KEY_POSITION, 0);
         mSource = getIntent().getStringExtra(Constants.KEY_SOURCE);
 
-        adapterViewPager = new RestaurantPagerAdapter(getSupportFragmentManager(), mRestaurants);
+        adapterViewPager = new RestaurantPagerAdapter(getSupportFragmentManager(), mRestaurants, mSource);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
     }
