@@ -24,6 +24,5 @@ public class RestaurantListActivity extends AppCompatActivity implements OnResta
         mPosition = position;
         mRestaurants = restaurants;
     }
-
 }
 

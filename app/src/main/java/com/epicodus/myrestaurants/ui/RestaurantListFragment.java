@@ -43,7 +43,6 @@ public class RestaurantListFragment extends Fragment {
     private String mRecentAddress;
     private OnRestaurantSelectedListener mOnRestaurantSelectedListener;
 
-
     public RestaurantListFragment() {
     }
 

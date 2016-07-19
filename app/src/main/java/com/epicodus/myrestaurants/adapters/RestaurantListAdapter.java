@@ -36,7 +36,6 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
     private Context mContext;
     private OnRestaurantSelectedListener mOnRestaurantSelectedListener;
 
-
     public RestaurantListAdapter(Context context, ArrayList<Restaurant> restaurants, OnRestaurantSelectedListener restaurantSelectedListener) {
         mContext = context;
         mRestaurants = restaurants;
