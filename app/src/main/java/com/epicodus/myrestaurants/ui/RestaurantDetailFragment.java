@@ -73,6 +73,12 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
         View view = inflater.inflate(R.layout.fragment_restaurant_detail, container, false);
         ButterKnife.bind(this, view);
 
+        if (mSource.equals(Constants.SOURCE_SAVED)) {
+            mSaveRestaurantButton.setVisibility(View.GONE);
+        } else {
+            mSaveRestaurantButton.setOnClickListener(this);
+        }
+
         Picasso.with(view.getContext())
                 .load(mRestaurant.getImageUrl())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
@@ -88,8 +94,6 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
         mWebsiteLabel.setOnClickListener(this);
         mPhoneLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
-
-        mSaveRestaurantButton.setOnClickListener(this);
 
         return view;
     }
