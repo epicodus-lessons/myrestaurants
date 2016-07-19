@@ -23,6 +23,8 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -40,6 +42,8 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
     @Bind(R.id.saveRestaurantButton) TextView mSaveRestaurantButton;
 
     private Restaurant mRestaurant;
+    private ArrayList<Restaurant> mRestaurants;
+    private int mPosition;
 
     public static RestaurantDetailFragment newInstance(Restaurant restaurant) {
         RestaurantDetailFragment restaurantDetailFragment = new RestaurantDetailFragment();
