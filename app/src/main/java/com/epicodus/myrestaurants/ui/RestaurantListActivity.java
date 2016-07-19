@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class RestaurantListActivity extends AppCompatActivity implements OnRestaurantSelectedListener {
     private Integer mPosition;
     ArrayList<Restaurant> mRestaurants;
+    String mSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class RestaurantListActivity extends AppCompatActivity implements OnResta
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                 mPosition = savedInstanceState.getInt(Constants.EXTRA_KEY_POSITION);
                 mRestaurants = Parcels.unwrap(savedInstanceState.getParcelable(Constants.EXTRA_KEY_RESTAURANTS));
+                mSource = savedInstanceState.getString(Constants.KEY_SOURCE);
 
                 if (mPosition != null && mRestaurants != null) {
                     Intent intent = new Intent(this, RestaurantDetailActivity.class);
