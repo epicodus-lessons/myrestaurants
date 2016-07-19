@@ -44,6 +44,17 @@ public class RestaurantListActivity extends AppCompatActivity implements OnResta
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (mPosition != null && mRestaurants != null) {
+            outState.putInt(Constants.EXTRA_KEY_POSITION, mPosition);
+            outState.putParcelable(Constants.EXTRA_KEY_RESTAURANTS, Parcels.wrap(mRestaurants));
+        }
+
+    }
+
+    @Override
     public void onRestaurantSelected(Integer position, ArrayList<Restaurant> restaurants) {
         mPosition = position;
         mRestaurants = restaurants;
