@@ -98,6 +98,12 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
                     .into(mImageLabel);
         }
 
+        if (mSource.equals(Constants.SOURCE_SAVED)) {
+            mSaveRestaurantButton.setVisibility(View.GONE);
+        } else {
+            mSaveRestaurantButton.setOnClickListener(this);
+        }
+
         mNameLabel.setText(mRestaurant.getName());
         mCategoriesLabel.setText(android.text.TextUtils.join(", ", mRestaurant.getCategories()));
         mRatingLabel.setText(Double.toString(mRestaurant.getRating()) + "/5");
@@ -107,12 +113,6 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
         mWebsiteLabel.setOnClickListener(this);
         mPhoneLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
-
-        if (mSource.equals(Constants.SOURCE_SAVED)) {
-            mSaveRestaurantButton.setVisibility(View.GONE);
-        } else {
-            mSaveRestaurantButton.setOnClickListener(this);
-        }
 
         return view;
     }
