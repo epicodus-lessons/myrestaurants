@@ -1,3 +1,4 @@
+package com.epicodus.myrestaurants;
 import java.util.ArrayList;
 
 public class Restaurant {
