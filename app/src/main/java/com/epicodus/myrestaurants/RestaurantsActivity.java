@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import okhttp3.Callback;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -43,5 +44,13 @@ public class RestaurantsActivity extends AppCompatActivity {
 
         mLocationTextView.setText("Here are all the restaurants near: " + location);
     }
+
+    private void getRestaurants(String location) {
+        final YelpService yelpService = new YelpService();
+        yelpService.findRestaurants(location, new Callback() {
+
+        });
+    }
+
 }
 
