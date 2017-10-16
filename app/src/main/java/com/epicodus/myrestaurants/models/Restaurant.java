@@ -3,63 +3,63 @@ package com.epicodus.myrestaurants.models;
 import java.util.ArrayList;
 
 public class Restaurant {
-    private String mName;
-    private String mPhone;
-    private String mWebsite;
-    private double mRating;
-    private String mImageUrl;
-    private ArrayList<String> mAddress = new ArrayList<>();
-    private double mLatitude;
-    private double mLongitude;
-    private ArrayList<String> mCategories = new ArrayList<>();
-
+    private String name;
+    private String phone;
+    private String website;
+    private double rating;
+    private String imageUrl;
+    private ArrayList<String> address = new ArrayList<>();
+    private double latitude;
+    private double longitude;
+    private ArrayList<String> categories = new ArrayList<>();
     public Restaurant(String name, String phone, String website,
                       double rating, String imageUrl, ArrayList<String> address,
                       double latitude, double longitude, ArrayList<String> categories) {
-        this.mName = name;
-        this.mPhone = phone;
-        this.mWebsite = website;
-        this.mRating = rating;
-        this.mImageUrl = imageUrl;
-        this.mAddress = address;
-        this.mLatitude = latitude;
-        this.mLongitude = longitude;
-        this.mCategories = categories;
+
+        this.name = name;
+        this.phone = phone;
+        this.website = website;
+        this.rating = rating;
+        this.imageUrl = imageUrl;
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.categories = categories;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
     public String getPhone() {
-        return mPhone;
+        return phone;
     }
 
     public String getWebsite() {
-        return  mWebsite;
+        return  website;
     }
 
     public double getRating() {
-        return mRating;
+        return rating;
     }
 
     public String getImageUrl(){
-        return mImageUrl;
+        return imageUrl;
     }
 
     public ArrayList<String> getAddress() {
-        return mAddress;
+        return address;
     }
 
     public double getLatitude() {
-        return mLatitude;
+        return latitude;
     }
 
     public double getLongitude() {
-        return mLongitude;
+        return longitude;
     }
 
     public ArrayList<String> getCategories() {
-        return mCategories;
+        return categories;
     }
 }
