@@ -1,5 +1,6 @@
 package com.epicodus.myrestaurants.adapters;
 
+import java.util.ArrayList;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -48,6 +49,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         return mRestaurants.size();
     }
 
+
     public class RestaurantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.restaurantImageView) ImageView mRestaurantImageView;
         @Bind(R.id.restaurantNameTextView) TextView mNameTextView;
@@ -82,3 +84,4 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         }
     }
 }
+

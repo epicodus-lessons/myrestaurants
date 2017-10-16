@@ -3,7 +3,11 @@ package com.epicodus.myrestaurants;
 import android.os.Build;
 import android.widget.ListView;
 
+<<<<<<< HEAD:app/src/test/java/com/epicodus/myrestaurants/RestaurantListActivityTest.java
 import com.epicodus.myrestaurants.ui.RestaurantListActivity;
+=======
+import com.epicodus.myrestaurants.ui.RestaurantsActivity;
+>>>>>>> 2.7_images_with_picasso_v2:app/src/test/java/com/epicodus/myrestaurants/RestaurantsActivityTest.java
 
 import org.junit.Before;
 import org.junit.Test;
