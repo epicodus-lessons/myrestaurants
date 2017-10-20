@@ -17,7 +17,6 @@ public class Restaurant {
     double longitude;
     List<String> categories = new ArrayList<>();
 
-    // empty constructor needed by the Parceler library:
     public Restaurant() {}
 
     public Restaurant(String name, String phone, String website,
@@ -75,3 +74,4 @@ public class Restaurant {
         return largeImageUrl;
     }
 }
+
