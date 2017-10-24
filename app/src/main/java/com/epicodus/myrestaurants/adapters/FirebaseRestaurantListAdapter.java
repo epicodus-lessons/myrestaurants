@@ -9,11 +9,17 @@ import com.epicodus.myrestaurants.models.Restaurant;
 import com.epicodus.myrestaurants.util.ItemTouchHelperAdapter;
 import com.epicodus.myrestaurants.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
-public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Restaurant, FirebaseRestaurantViewHolder> implements ItemTouchHelperAdapter {
+import java.util.ArrayList;
 
+public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Restaurant, FirebaseRestaurantViewHolder> implements ItemTouchHelperAdapter {
+    private ChildEventListener mChildEventListener;
+    private ArrayList<Restaurant> mRestaurants = new ArrayList<>();
     private DatabaseReference mRef;
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
@@ -26,6 +32,34 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
         mRef = ref.getRef();
         mOnStartDragListener = onStartDragListener;
         mContext = context;
+
+        mChildEventListener = mRef.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                mRestaurants.add(dataSnapshot.getValue(Restaurant.class));
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
