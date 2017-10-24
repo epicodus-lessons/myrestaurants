@@ -2,8 +2,8 @@ package com.epicodus.myrestaurants.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +59,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         @Bind(R.id.ratingTextView) TextView mRatingTextView;
 
         private Context mContext;
+        private int mOrientation;
 
         public RestaurantViewHolder(View itemView) {
             super(itemView);
@@ -66,6 +67,11 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
 
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
+
+            mOrientation = itemView.getResources().getConfiguration().orientation;
+            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                createDetailFragment(0);
+            }
         }
 
         public void bindRestaurant(Restaurant restaurant) {
