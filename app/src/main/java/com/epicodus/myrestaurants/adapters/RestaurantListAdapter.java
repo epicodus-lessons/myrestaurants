@@ -6,7 +6,6 @@ import android.content.res.Configuration;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,8 +57,6 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
     public int getItemCount() {
         return mRestaurants.size();
     }
-
-
 
     public class RestaurantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.restaurantImageView) ImageView mRestaurantImageView;
@@ -124,3 +121,4 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         }
     }
 }
+
