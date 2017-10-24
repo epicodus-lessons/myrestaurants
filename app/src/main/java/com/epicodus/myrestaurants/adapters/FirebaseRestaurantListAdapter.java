@@ -3,12 +3,16 @@ package com.epicodus.myrestaurants.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.epicodus.myrestaurants.R;
 import com.epicodus.myrestaurants.models.Restaurant;
 import com.epicodus.myrestaurants.ui.RestaurantDetailActivity;
+import com.epicodus.myrestaurants.ui.RestaurantDetailFragment;
 import com.epicodus.myrestaurants.util.ItemTouchHelperAdapter;
 import com.epicodus.myrestaurants.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -97,6 +101,13 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
             }
         });
 
+    }
+
+    private void createDetailFragment(int position) {
+        RestaurantDetailFragment detailFragment = RestaurantDetailFragment.newInstance(mRestaurants, position);
+        FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.restaurantDetailContainer, detailFragment);
+        ft.commit();
     }
 
     @Override
