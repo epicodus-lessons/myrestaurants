@@ -99,4 +99,11 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
         }
     }
 
+    @Override
+    public void cleanup() {
+        super.cleanup();
+        setIndexInFirebase();
+        mRef.removeEventListener(mChildEventListener);
+    }
+
 }
