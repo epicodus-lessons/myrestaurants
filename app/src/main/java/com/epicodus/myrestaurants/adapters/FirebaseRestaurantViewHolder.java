@@ -1,30 +1,18 @@
 package com.epicodus.myrestaurants.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.epicodus.myrestaurants.Constants;
 import com.epicodus.myrestaurants.R;
 import com.epicodus.myrestaurants.models.Restaurant;
-import com.epicodus.myrestaurants.ui.RestaurantDetailActivity;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
-import org.parceler.Parcels;
-
-import java.util.ArrayList;
 
 import static com.epicodus.myrestaurants.R.id.restaurantImageView;
 
-public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
 
@@ -36,7 +24,6 @@ public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder implem
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindRestaurant(Restaurant restaurant) {
