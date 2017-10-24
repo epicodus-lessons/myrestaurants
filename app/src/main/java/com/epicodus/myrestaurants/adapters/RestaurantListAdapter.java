@@ -67,12 +67,22 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
 
         private Context mContext;
         private int mOrientation;
+        private ArrayList<Restaurant> mRestaurants = new ArrayList<>();
+        private OnRestaurantSelectedListener mRestaurantSelectedListener;
 
-        public RestaurantViewHolder(View itemView) {
+        public RestaurantViewHolder(View itemView, ArrayList<Restaurant> restaurants, OnRestaurantSelectedListener restaurantSelectedListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
 
             mContext = itemView.getContext();
+            mOrientation = itemView.getResources().getConfiguration().orientation;
+            mRestaurants = restaurants;
+            mRestaurantSelectedListener = restaurantSelectedListener;
+
+            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE){
+                createDetailFragment(0);
+            }
+
             itemView.setOnClickListener(this);
 
             mOrientation = itemView.getResources().getConfiguration().orientation;
@@ -97,6 +107,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
+            mRestaurantSelectedListener.onRestaurantSelected(itemPosition, mRestaurants);
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(itemPosition);
             } else {
