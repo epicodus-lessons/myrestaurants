@@ -102,6 +102,7 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
                     Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
                     intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
                     intent.putExtra(Constants.EXTRA_KEY_RESTAURANTS, Parcels.wrap(mRestaurants));
+                    intent.putExtra(Constants.KEY_SOURCE, Constants.SOURCE_SAVED);
                     mContext.startActivity(intent);
                 }
             }
