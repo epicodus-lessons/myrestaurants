@@ -24,11 +24,11 @@ import butterknife.ButterKnife;
 
 public class SavedRestaurantListActivity extends AppCompatActivity implements OnStartDragListener {
     private DatabaseReference mRestaurantReference;
-    private FirebaseRestaurantListAdapter mFirebaseAdapter;
-    private ItemTouchHelper mItemTouchHelper;
-
-    @Bind(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+//    private FirebaseRestaurantListAdapter mFirebaseAdapter;
+//    private ItemTouchHelper mItemTouchHelper;
+//
+//    @Bind(R.id.recyclerView)
+//    RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,44 +37,44 @@ public class SavedRestaurantListActivity extends AppCompatActivity implements On
         setContentView(R.layout.activity_restaurants);
         ButterKnife.bind(this);
 
-        setUpFirebaseAdapter();
+//        setUpFirebaseAdapter();
     }
 
-    private void setUpFirebaseAdapter() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
+//    private void setUpFirebaseAdapter() {
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
+//
+//        Query query = FirebaseDatabase.getInstance()
+//                .getReference(Constants.FIREBASE_CHILD_RESTAURANTS)
+//                .child(uid)
+//                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
+//
+//        mRestaurantReference = FirebaseDatabase
+//                .getInstance()
+//                .getReference(Constants.FIREBASE_CHILD_RESTAURANTS)
+//                .child(uid);
+//
+//        mFirebaseAdapter = new FirebaseRestaurantListAdapter(Restaurant.class,
+//                R.layout.restaurant_list_item_drag, FirebaseRestaurantViewHolder.class,
+//                mRestaurantReference, this, this);
+//
+//        mRecyclerView.setHasFixedSize(true);
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerView.setAdapter(mFirebaseAdapter);
+//
+//        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+//        mItemTouchHelper = new ItemTouchHelper(callback);
+//        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
+//    }
 
-        Query query = FirebaseDatabase.getInstance()
-                .getReference(Constants.FIREBASE_CHILD_RESTAURANTS)
-                .child(uid)
-                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
-
-        mRestaurantReference = FirebaseDatabase
-                .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_RESTAURANTS)
-                .child(uid);
-
-        mFirebaseAdapter = new FirebaseRestaurantListAdapter(Restaurant.class,
-                R.layout.restaurant_list_item_drag, FirebaseRestaurantViewHolder.class,
-                mRestaurantReference, this, this);
-
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mFirebaseAdapter);
-
-        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
-        mItemTouchHelper = new ItemTouchHelper(callback);
-        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mFirebaseAdapter.cleanup();
-    }
-
-    @Override
-    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
-        mItemTouchHelper.startDrag(viewHolder);
-    }
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        mFirebaseAdapter.cleanup();
+//    }
+//
+//    @Override
+//    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+//        mItemTouchHelper.startDrag(viewHolder);
+//    }
 }
