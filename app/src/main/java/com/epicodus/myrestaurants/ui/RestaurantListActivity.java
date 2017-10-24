@@ -82,9 +82,9 @@ public class RestaurantListActivity extends AppCompatActivity {
 //        return super.onOptionsItemSelected(item);
 //    }
 
-    private void addToSharedPreferences(String location) {
-        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
-    }
+//    private void addToSharedPreferences(String location) {
+//        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+//    }
 
 }
 

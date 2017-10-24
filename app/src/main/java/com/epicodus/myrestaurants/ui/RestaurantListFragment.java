@@ -31,12 +31,8 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class RestaurantListFragment extends Fragment {
-    @Bind(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
     private RestaurantListAdapter mAdapter;
     public ArrayList<Restaurant> mRestaurants = new ArrayList<>();
@@ -44,35 +40,25 @@ public class RestaurantListFragment extends Fragment {
     private SharedPreferences.Editor mEditor;
     private String mRecentAddress;
 
-
-    public RestaurantListFragment() {
-        // Required empty public constructor
-    }
+    public RestaurantListFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         mEditor = mSharedPreferences.edit();
-
-        // Instructs fragment to include menu options:
         setHasOptionsMenu(true);
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_restaurant_list, container, false);
         ButterKnife.bind(this, view);
-
         mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-
         if (mRecentAddress != null) {
             getRestaurants(mRecentAddress);
         }
-
         return view;
     }
 
@@ -89,6 +75,7 @@ public class RestaurantListFragment extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 mRestaurants = yelpService.processResults(response);
+
                 getActivity().runOnUiThread(new Runnable() {
 
                     @Override
@@ -100,6 +87,7 @@ public class RestaurantListFragment extends Fragment {
                         mRecyclerView.setHasFixedSize(true);
                     }
                 });
+
             }
         });
     }
@@ -110,15 +98,14 @@ public class RestaurantListFragment extends Fragment {
         inflater.inflate(R.menu.menu_search, menu);
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 addToSharedPreferences(query);
                 getRestaurants(query);
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;
@@ -132,5 +119,8 @@ public class RestaurantListFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+    }
 
 }
