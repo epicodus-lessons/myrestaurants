@@ -1,6 +1,7 @@
+package com.epicodus.myrestaurants.adapters;
+
 import android.content.Context;
 
-import com.epicodus.myrestaurants.adapters.FirebaseRestaurantViewHolder;
 import com.epicodus.myrestaurants.models.Restaurant;
 import com.epicodus.myrestaurants.util.ItemTouchHelperAdapter;
 import com.epicodus.myrestaurants.util.OnStartDragListener;
