@@ -4,6 +4,7 @@ package com.epicodus.myrestaurants.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -162,6 +163,13 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
                 break;
         }
         return false;
+    }
+
+    public void onLaunchCamera() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
     }
 
 }
