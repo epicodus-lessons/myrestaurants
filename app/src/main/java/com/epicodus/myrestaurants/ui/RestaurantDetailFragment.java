@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -138,6 +141,27 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        if (mSource.equals(Constants.SOURCE_SAVED)) {
+            inflater.inflate(R.menu.menu_photo, menu);
+        } else {
+            inflater.inflate(R.menu.menu_main, menu);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_photo:
+                onLaunchCamera();
+            default:
+                break;
+        }
+        return false;
     }
 
 }
