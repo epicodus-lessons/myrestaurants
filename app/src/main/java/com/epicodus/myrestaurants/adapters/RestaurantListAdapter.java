@@ -17,6 +17,7 @@ import com.epicodus.myrestaurants.R;
 import com.epicodus.myrestaurants.models.Restaurant;
 import com.epicodus.myrestaurants.ui.RestaurantDetailActivity;
 import com.epicodus.myrestaurants.ui.RestaurantDetailFragment;
+import com.epicodus.myrestaurants.util.OnRestaurantSelectedListener;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -32,16 +33,18 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
 
     private ArrayList<Restaurant> mRestaurants = new ArrayList<>();
     private Context mContext;
+    private OnRestaurantSelectedListener mOnRestaurantSelectedListener;
 
-    public RestaurantListAdapter(Context context, ArrayList<Restaurant> restaurants) {
+    public RestaurantListAdapter(Context context, ArrayList<Restaurant> restaurants, OnRestaurantSelectedListener restaurantSelectedListener) {
         mContext = context;
         mRestaurants = restaurants;
+        mOnRestaurantSelectedListener = restaurantSelectedListener;
     }
 
     @Override
     public RestaurantListAdapter.RestaurantViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.restaurant_list_item, parent, false);
-        RestaurantViewHolder viewHolder = new RestaurantViewHolder(view);
+        RestaurantViewHolder viewHolder = new RestaurantViewHolder(view, mRestaurants, mOnRestaurantSelectedListener);;
         return viewHolder;
     }
 
